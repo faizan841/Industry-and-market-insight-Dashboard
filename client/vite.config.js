@@ -14,29 +14,74 @@ export default defineConfig({
   envDir: "./",
   envPrefix: "VITE_",
   build: {
-    minify: "terser", // Use terser for minification
-    chunkSizeWarningLimit: 500, // Set the chunk size warning limit to 500KB
+    minify: "terser",
+    chunkSizeWarningLimit: 499,
     rollupOptions: {
       input: "src/main.jsx",
       output: {
         manualChunks(id) {
           if (id.includes("node_modules")) {
-            return "vendor"; // Separate vendor modules
+            if (id.includes("react")) {
+              return "vendor-react";
+            }
+            if (id.includes("react-dom")) {
+              return "vendor-react-dom";
+            }
+            if (id.includes("@mui/material")) {
+              return "vendor-mui-material";
+            }
+            if (id.includes("@mui/icons-material")) {
+              return "vendor-mui-icons";
+            }
+            if (id.includes("@emotion/react")) {
+              return "vendor-emotion-react";
+            }
+            if (id.includes("@emotion/styled")) {
+              return "vendor-emotion-styled";
+            }
+            if (id.includes("@mui/system")) {
+              return "vendor-mui-system";
+            }
+            if (id.includes("@mui/base")) {
+              return "vendor-mui-base";
+            }
+            if (id.includes("lodash")) {
+              return "vendor-lodash";
+            }
+            if (id.includes("date-fns")) {
+              return "vendor-date-fns";
+            }
+            if (id.includes("axios")) {
+              return "vendor-axios";
+            }
+            if (id.includes("redux")) {
+              return "vendor-redux";
+            }
+            if (id.includes("react-redux")) {
+              return "vendor-react-redux";
+            }
+            if (id.includes("chart.js")) {
+              return "vendor-chartjs";
+            }
+            if (id.includes("d3")) {
+              return "vendor-d3";
+            }
+            return "vendor";
           }
           if (id.includes("src/scenes/dashboard")) {
-            return "dashboard"; // Separate dashboard modules
+            return "dashboard";
           }
           if (id.includes("src/scenes/Likelihood")) {
-            return "likelihood"; // Separate likelihood modules
+            return "likelihood";
           }
           if (id.includes("src/scenes/country")) {
-            return "country"; // Separate country modules
+            return "country";
           }
           if (id.includes("src/scenes/topics")) {
-            return "topics"; // Separate topics modules
+            return "topics";
           }
           if (id.includes("src/scenes/year")) {
-            return "year"; // Separate year modules
+            return "year";
           }
         },
       },

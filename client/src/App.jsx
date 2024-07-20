@@ -11,6 +11,7 @@ const Likelihood = lazy(() => import("./scenes/Likelihood/Likelihood"));
 const Country = lazy(() => import("./scenes/country/Country"));
 const Topics = lazy(() => import("./scenes/topics/Topics"));
 const Year = lazy(() => import("./scenes/year/Year"));
+const Layout = lazy(() => import("./scenes/layout/index"));
 
 const App = () => {
   const mode = useSelector((state) => state.global.mode);
