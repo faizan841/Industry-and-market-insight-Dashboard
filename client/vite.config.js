@@ -14,6 +14,7 @@ export default defineConfig({
   envDir: "./",
   envPrefix: "VITE_",
   build: {
+    outDir: "build",
     minify: "terser",
     chunkSizeWarningLimit: 499,
     rollupOptions: {
