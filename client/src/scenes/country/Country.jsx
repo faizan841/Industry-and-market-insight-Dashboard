@@ -15,7 +15,6 @@ const Country = ({ isDashboard = false }) => {
     var choroPlethData = data.filter((item) => {
       return item.id !== null;
     });
-    console.log(choroPlethData);
   }
 
   return (
